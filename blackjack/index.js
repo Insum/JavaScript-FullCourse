@@ -10,7 +10,16 @@ let sumEl = document.querySelector("#sum-el");
 let cardsEld = document.querySelector("#cards-el");
 
 function getRandomCard() {
-    return Math.floor(Math.random() * 10) + 1;
+    let randomNumber = Math.floor(Math.random() * 13) + 1;
+
+    if (randomNumber > 10) {
+        return 10;
+    } else if (randomNumber === 1) {
+        return 11;
+    } else {
+        return randomNumber;
+    }
+
 }
 
 function startGame() {
@@ -40,9 +49,11 @@ function renderGame() {
 }
 
 function newCard() {
-    let card = getRandomCard();
-    sum += card;
-    cards.push(card);
-    console.log(cards);
-    renderGame();
+    if (isAlive === true && hasBlackJack === false) {
+        let card = getRandomCard();
+        sum += card;
+        cards.push(card);
+        console.log(cards);
+        renderGame();
+    }
 }
