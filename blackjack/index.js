@@ -7,7 +7,15 @@ let isAlive = true;
 let message = "";
 let messageEl = document.querySelector("#message-el");
 let sumEl = document.querySelector("#sum-el");
-let cardsEld = document.querySelector("#cards-el");
+let cardsEl = document.querySelector("#cards-el");
+let playerEl = document.querySelector("#player-el");
+
+let player = {
+    Name : "Eldar",
+    Chips : 145
+}
+
+playerEl.innerHTML = player.Name + ": $" + player.Chips;
 
 function getRandomCard() {
     let randomNumber = Math.floor(Math.random() * 13) + 1;
@@ -28,10 +36,10 @@ function startGame() {
 
 function renderGame() {
 
-    cardsEld.innerHTML = "Cards: ";
+    cardsEl.innerHTML = "Cards: ";
 
     for (let i = 0; i < cards.length; i++) {
-        cardsEld.innerHTML += cards[i] + " ";    
+        cardsEl.innerHTML += cards[i] + " ";    
     }
 
     if (sum <= 20) {
